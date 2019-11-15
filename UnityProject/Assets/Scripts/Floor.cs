@@ -3,7 +3,7 @@
 public class Floor : MonoBehaviour
 {
     [Header("地板速度"),Range(0.5f,99.9f)]
-    public int speed = 1;
+    public float speed = 1;
 
     public Transform floor;
 
@@ -12,6 +12,12 @@ public class Floor : MonoBehaviour
         floor.Translate(-speed,0,0);
     }
 
-
+    /// <summary>
+    /// 移動速度
+    /// </summary>
+    private void Move()
+    {
+         
+    }
 
 }
