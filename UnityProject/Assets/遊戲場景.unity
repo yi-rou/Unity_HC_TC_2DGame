@@ -1736,10 +1736,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2047149813}
   - component: {fileID: 2047149812}
-  - component: {fileID: 2047149815}
-  - component: {fileID: 2047149814}
   - component: {fileID: 2047149816}
   - component: {fileID: 2047149817}
+  - component: {fileID: 2047149818}
+  - component: {fileID: 2047149814}
   m_Layer: 0
   m_Name: "\u7DF4\u7FD2\u7528"
   m_TagString: Untagged
@@ -1762,7 +1762,7 @@ MonoBehaviour:
   coin: 111
   speed: -0.25
   prop: "\u7D05\u8272\u85E5\u6C34"
-  dead: 1
+  dead: 0
 --- !u!4 &2047149813
 Transform:
   m_ObjectHideFlags: 0
@@ -1786,25 +1786,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2047149811}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c670ae4e5943ad44af42a362b0f2571, type: 3}
+  m_Script: {fileID: 11500000, guid: 321e7750c2b900f4ba6cfdcc221ccd00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jump: 0.5
-  dead: 0
---- !u!114 &2047149815
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2047149811}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e679e398a46b8c4e9611b8ab96ff728, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
-  floor: {fileID: 0}
+  open: 1
+  score: 3
+  combo: 100
 --- !u!114 &2047149816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1825,8 +1812,24 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2047149811}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1ba08beb179b6794cb445dd464f3a00f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2047149818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2047149811}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2457aff9af3049e4ba8f8cbddbc5c23e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  a: 55
+  b: 6
+  c: 3
+  d: 9
