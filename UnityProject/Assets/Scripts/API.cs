@@ -16,4 +16,9 @@ public class API : MonoBehaviour
         Debug.Log(bird.position);
     }
 
+    private void Update()
+    {
+        print(Input.GetKeyDown("mouse 0"));
+        print(Input.GetKeyDown(KeyCode.Mouse1));
+    }
 }
