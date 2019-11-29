@@ -8,14 +8,16 @@ public class GameManager : MonoBehaviour
     public int scoreHight;
     [Header("生成水管")]
     public GameObject pipe;
+    [Header("結束畫面")]
+    public GameObject goFinal;
 
     /// <summary>
     /// 目前分數
     /// </summary>
     /// <param name="add">增加分數.預設值為1</param>
-    private void Score(int add = 1)
+    public void Score(int add = 1)
     {
-       
+        print("+1");
     }
     
     /// <summary>
@@ -29,9 +31,10 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// 遊戲結束
     /// </summary>
-    private void GameOver()
+    public void GameOver()
     {
-
+        goFinal.SetActive(true);
+        CancelInvoke("SpawnPipe");  // 取消調用 ("方法名稱")
     }
 
     /// <summary>

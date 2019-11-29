@@ -2,8 +2,11 @@
 
 public class Floor : MonoBehaviour
 {
-    [Header("地板速度"),Range(0.5f,99.9f)]
-    public float speed = 1;
+    // 靜態  此類別共用
+    // 隱藏
+
+    //[Header("地板速度"),Range(0.5f,99.9f)]
+    public static float speed = 3;
 
     public Transform floor;
 

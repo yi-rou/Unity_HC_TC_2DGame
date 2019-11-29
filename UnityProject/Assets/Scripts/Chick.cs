@@ -11,6 +11,16 @@ public class Chick : MonoBehaviour
 
     public Rigidbody2D rb2D;
 
+    public GameManager gm;
+
+    public AudioSource aud;
+
+    public AudioClip audJump;
+
+    public AudioClip audHit;
+
+    public AudioClip audPass;
+
     private void Update()
     {
         Jump();
@@ -29,6 +39,7 @@ public class Chick : MonoBehaviour
 
             goScore.SetActive(true);
             goGM.SetActive(true);
+            aud.PlayOneShot(audJump);
 
             rb2D.Sleep();                       //睡著()  重設所有物理資料                                    
             rb2D.gravityScale = 1;
@@ -42,14 +53,27 @@ public class Chick : MonoBehaviour
     //碰撞事件:物件碰撞開始時執行一次
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //print(collision.gameObject.name);
-
+       
         Dead();
+
     }
     //觸發事件:物件觸發開始時執行一次 針對有勾選isTrigger的物件
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Dead();
+        if (collision.gameObject.name == ("水管 下") || collision.gameObject.name == ("水管 上"))
+        {
+            Dead();
+            aud.PlayOneShot(audHit);
+        }
+    }
+    //觸發事件:物件觸發離開時執行一次
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.name == ("通過"))
+        {
+            gm.Score();
+            aud.PlayOneShot(audPass);
+        }
     }
     /// <summary>
     /// 小雞是否死亡
@@ -57,6 +81,9 @@ public class Chick : MonoBehaviour
     private void Dead()
     {
         dead = true;
+        gm.GameOver();
+        // 靜態 = 成員.靜態名稱
+        Floor.speed = 0;
     }
 
     /// <summary>
