@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class GameManager : MonoBehaviour
     [Header("結束畫面")]
     public GameObject goFinal;
 
+    public Text textScore;
+
     /// <summary>
     /// 目前分數
     /// </summary>
@@ -18,6 +21,8 @@ public class GameManager : MonoBehaviour
     public void Score(int add = 1)
     {
         print("+1");
+        score = score + add;
+        textScore.text = score.ToString();
     }
     
     /// <summary>

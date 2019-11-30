@@ -426,6 +426,7 @@ MonoBehaviour:
   scoreHight: 0
   pipe: {fileID: 2043435704680339780, guid: 88deb82ca662be64c9576674b8ac056e, type: 3}
   goFinal: {fileID: 1962351996}
+  textScore: {fileID: 177436649}
 --- !u!4 &419587728
 Transform:
   m_ObjectHideFlags: 0
