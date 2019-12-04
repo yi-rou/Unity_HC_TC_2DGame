@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class GameManager : MonoBehaviour
 
     public Text textScore;
 
+    public Text textHight;
+
     /// <summary>
     /// 目前分數
     /// </summary>
@@ -23,6 +26,7 @@ public class GameManager : MonoBehaviour
         print("+1");
         score = score + add;
         textScore.text = score.ToString();
+        BestScore();
     }
     
     /// <summary>
@@ -30,7 +34,10 @@ public class GameManager : MonoBehaviour
     /// </summary>
     private void BestScore()
     {
-
+        if (score > scoreHight)
+        {
+            PlayerPrefs.SetInt("最佳分數", score);
+        }
     }
 
     /// <summary>
@@ -53,6 +60,25 @@ public class GameManager : MonoBehaviour
         //Quaternion.identity 零角度.不旋轉
         Instantiate(pipe , p , Quaternion.identity);
     }
+
+    /// <summary>
+    /// 重新遊戲
+    /// </summary>
+    public void Replay()
+    {
+        print("重新遊戲");
+        SceneManager.LoadScene("遊戲場景");
+    }
+
+    /// <summary>
+    /// 離開遊戲
+    /// </summary>
+    public void Exit()
+    {
+        print("離開遊戲");
+        Application.Quit();
+    }
+
     private void Start()
     {
         //SpawnPipe();
@@ -60,5 +86,8 @@ public class GameManager : MonoBehaviour
         //Invoke("SpawnPipe", 0.5f);
         //InvokeRepeating("方法名稱",延遲時間,產生速率)
         InvokeRepeating("SpawnPipe", 0 ,2.5f);
+
+        scoreHight = PlayerPrefs.GetInt("最佳分數");
+        textHight.text = scoreHight.ToString();
     }
 }

@@ -21,6 +21,13 @@ public class Chick : MonoBehaviour
 
     public AudioClip audPass;
 
+
+    private void Start()
+    {
+        // 螢幕.設定解析度(寬, 高, 是否全螢幕)
+        Screen.SetResolution(450, 800, false);
+    }
+
     private void Update()
     {
         Jump();
@@ -46,6 +53,11 @@ public class Chick : MonoBehaviour
             rb2D.AddForce(new Vector2(0,jump));
 
         }
+
+        if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            rb2D.gravityScale = 0.5f;
+        }
         rb2D.SetRotation(100 * rb2D.velocity.y);
         //print(rb2D.velocity);
     }
@@ -69,7 +81,7 @@ public class Chick : MonoBehaviour
     //觸發事件:物件觸發離開時執行一次
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.name == ("通過"))
+        if (collision.gameObject.name == ("通過") && !dead )
         {
             gm.Score();
             aud.PlayOneShot(audPass);
@@ -80,6 +92,7 @@ public class Chick : MonoBehaviour
     /// </summary>
     private void Dead()
     {
+        if (dead) return;
         dead = true;
         gm.GameOver();
         // 靜態 = 成員.靜態名稱
